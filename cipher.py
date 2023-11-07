@@ -33,30 +33,27 @@ alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n"
 plain_text = input("Please enter a sentence: ")
 plain_text = plain_text.lower()
 
-secret_text = ""
-for char in plain_text:
-    if char in substitution:
-        char = substitution[char]
-    secret_text += char
-    
-print(secret_text)
-
 # secret_text = ""
 # for char in plain_text:
-#     if char in alphabet:
-#         # char = substitution[char]
-#         letter = alphabet.index(char)
-#         newLetter = letter + 5
-#         print(letter)
-#         print(newLetter)
-#         print(len(alphabet))
-#         print(alphabet[-25])
-
-#         if newLetter > len(alphabet):
-#             newLetter = (letter - (len(alphabet)-1)) + (len(alphabet) * -1) + 4
-#             print(newLetter)
-#             secret_text += alphabet[newLetter]
-#         else:
-#             secret_text += alphabet[newLetter]
+#     if char in substitution:
+#         char = substitution[char]
+#     secret_text += char
     
 # print(secret_text)
+
+secret_text = ""
+for char in plain_text:
+    if char in alphabet:
+        # char = substitution[char]
+        letter = alphabet.index(char)
+        newLetter = letter + 5
+
+        if newLetter > len(alphabet):
+            newLetter = (letter - (len(alphabet)-1)) + (len(alphabet) * -1) + 4
+            secret_text += alphabet[newLetter]
+        else:
+            secret_text += alphabet[newLetter]
+    else:
+        secret_text += char
+    
+print(secret_text)
